@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://37ejfqggubt3"]
+
+[ext_resource type="Texture2D" uid="uid://byx527k64inet" path="res://graphics/country_road.jpeg" id="1_0kv0n"]
+[ext_resource type="PackedScene" uid="uid://b26p4sbiy1of8" path="res://scenes/player.tscn" id="2_eu0ep"]
+
+[node name="level" type="Node2D"]
+
+[node name="CountryRoad" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_0kv0n")
+
+[node name="player" parent="." instance=ExtResource("2_eu0ep")]
+position = Vector2(86, 493)
