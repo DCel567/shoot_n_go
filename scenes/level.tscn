@@ -12,7 +12,7 @@ script = ExtResource("1_wvwn8")
 position = Vector2(960, 540)
 texture = ExtResource("1_0kv0n")
 
-[node name="player" parent="." instance=ExtResource("2_eu0ep")]
+[node name="Player" parent="." instance=ExtResource("2_eu0ep")]
 position = Vector2(86, 493)
 
 [node name="red_soldier" parent="." instance=ExtResource("3_rfuek")]
@@ -23,4 +23,6 @@ rotation = -1.55509
 position = Vector2(1399, 641)
 rotation = 1.55509
 
-[connection signal="player_shoot" from="player" to="." method="_on_player_player_shoot"]
+[node name="Projectiles" type="Node2D" parent="."]
+
+[connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]
