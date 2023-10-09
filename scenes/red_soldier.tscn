@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo350h1i2l8g0"]
+
+[ext_resource type="Texture2D" uid="uid://coff3u63i63pe" path="res://graphics/red_soldier.png" id="1_7a3fa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s37hr"]
+radius = 40.0
+height = 116.0
+
+[node name="red_soldier" type="CharacterBody2D"]
+
+[node name="RedSoldier" type="Sprite2D" parent="."]
+position = Vector2(30, -18)
+texture = ExtResource("1_7a3fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_s37hr")
