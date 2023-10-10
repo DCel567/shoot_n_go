@@ -17,6 +17,5 @@ func _on_player_shoot(pos, direction):
 	
 	bullet.rotation_degrees = rad_to_deg(direction.angle()) + (90 + randi() % 6 - 3)
 	bullet.direction = Vector2.from_angle(bullet.rotation - PI/2)
-	print(bullet.rotation)
 	
 	$Projectiles.add_child(bullet)

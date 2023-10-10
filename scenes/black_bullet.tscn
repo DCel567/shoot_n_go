@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbuc4h17xmmwp"]
 
 [ext_resource type="Script" path="res://scenes/black_bullet.gd" id="1_c61tb"]
-[ext_resource type="Texture2D" uid="uid://5sq7726onuh5" path="res://graphics/black_bullet.png" id="1_cisl7"]
+[ext_resource type="Texture2D" uid="uid://bld4ne2qoxr8v" path="res://graphics/yellow_bullet.png" id="2_v3i84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm6xa"]
 size = Vector2(10, 100)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_c61tb")
-speed = 60
+speed = 100
 
 [node name="BlackBullet" type="Sprite2D" parent="."]
 position = Vector2(0, -50)
 scale = Vector2(0.5, 1)
-texture = ExtResource("1_cisl7")
+texture = ExtResource("2_v3i84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -50)

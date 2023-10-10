@@ -7,7 +7,7 @@ var can_shoot : bool = true
 
 
 func _ready():
-	$shoot_timer.wait_time = 0.5
+	$shoot_timer.wait_time = 0.1
 
 func _process(delta):
 	pass
