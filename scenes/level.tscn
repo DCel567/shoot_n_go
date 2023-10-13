@@ -1,110 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://37ejfqggubt3"]
+[gd_scene load_steps=6 format=3 uid="uid://37ejfqggubt3"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_wvwn8"]
+[ext_resource type="PackedScene" uid="uid://668p0bwxoglc" path="res://scenes/ground.tscn" id="2_38xxh"]
 [ext_resource type="PackedScene" uid="uid://b26p4sbiy1of8" path="res://scenes/player.tscn" id="2_eu0ep"]
-[ext_resource type="Texture2D" uid="uid://b8whws8ttf056" path="res://graphics/asphalt.png" id="2_kj5c7"]
-[ext_resource type="Texture2D" uid="uid://pftofwny7c7t" path="res://graphics/grass.png" id="3_hmufd"]
 [ext_resource type="PackedScene" uid="uid://bo350h1i2l8g0" path="res://scenes/red_soldier.tscn" id="3_rfuek"]
-[ext_resource type="Texture2D" uid="uid://c2c0kmhba128v" path="res://graphics/tree.png" id="4_ovotw"]
-[ext_resource type="Texture2D" uid="uid://5sq7726onuh5" path="res://graphics/black_bullet.png" id="5_8h5ft"]
+[ext_resource type="PackedScene" uid="uid://b0v6fksgtwc65" path="res://scenes/wooden_house_1.tscn" id="5_w5kj3"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_wvwn8")
 
-[node name="Ground" type="Node2D" parent="."]
+[node name="Ground" parent="." instance=ExtResource("2_38xxh")]
+position = Vector2(441, 278)
+scale = Vector2(0.3, 0.3)
 
-[node name="Asphalt" type="Sprite2D" parent="Ground"]
-texture_repeat = 2
-position = Vector2(84, 488)
-texture = ExtResource("2_kj5c7")
-region_enabled = true
-region_rect = Rect2(-1768.43, -859.19, 5000, 2400)
-
-[node name="Grass" type="Sprite2D" parent="Ground"]
-texture_repeat = 2
-position = Vector2(-326, 489)
-texture = ExtResource("3_hmufd")
-region_enabled = true
-region_rect = Rect2(-547.475, -906.339, 4200, 2400)
-
-[node name="Trees" type="Node" parent="Ground"]
-
-[node name="Tree5" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(147, 1075)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree3" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(163, -42)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree2" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(-936, 498)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree6" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(1460, 1567)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(1457, 618)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree4" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(1455, -458)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree9" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(-2190, 992)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree10" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(-2143, -55)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree8" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(-943, 1520)
-texture = ExtResource("4_ovotw")
-
-[node name="Tree7" type="Sprite2D" parent="Ground/Trees"]
-position = Vector2(-930, -524)
-texture = ExtResource("4_ovotw")
-
-[node name="WhiteStripes" type="Node" parent="Ground"]
-
-[node name="BlackBullet" type="Sprite2D" parent="Ground/WhiteStripes"]
-position = Vector2(2200, 250)
-scale = Vector2(4, 2)
-texture = ExtResource("5_8h5ft")
-
-[node name="BlackBullet2" type="Sprite2D" parent="Ground/WhiteStripes"]
-position = Vector2(2200, 1050)
-scale = Vector2(4, 2)
-texture = ExtResource("5_8h5ft")
-
-[node name="BlackBullet3" type="Sprite2D" parent="Ground/WhiteStripes"]
-position = Vector2(2200, 1850)
-scale = Vector2(4, 2)
-texture = ExtResource("5_8h5ft")
-
-[node name="BlackBullet4" type="Sprite2D" parent="Ground/WhiteStripes"]
-position = Vector2(2200, -550)
-scale = Vector2(4, 2)
-texture = ExtResource("5_8h5ft")
+[node name="WoodenHouse1" parent="." instance=ExtResource("5_w5kj3")]
+position = Vector2(654, -141)
 
 [node name="Player" parent="." instance=ExtResource("2_eu0ep")]
-position = Vector2(86, 493)
+position = Vector2(407, 364)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.7, 0.7)
+position = Vector2(-4, 8)
+zoom = Vector2(2, 2)
 
 [node name="red_soldier" parent="." instance=ExtResource("3_rfuek")]
-position = Vector2(1048, 277)
+position = Vector2(818, 257)
 rotation = -1.55509
 
 [node name="red_soldier2" parent="." instance=ExtResource("3_rfuek")]
-position = Vector2(1051, 605)
+position = Vector2(812, 492)
 rotation = 1.55509
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="red_soldier3" parent="." instance=ExtResource("3_rfuek")]
+position = Vector2(681, -185)
+
+[node name="red_soldier4" parent="." instance=ExtResource("3_rfuek")]
+position = Vector2(327, -181)
+
+[node name="red_soldier5" parent="." instance=ExtResource("3_rfuek")]
+position = Vector2(802, -58)
 
 [connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]

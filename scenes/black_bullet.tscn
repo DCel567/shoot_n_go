@@ -7,8 +7,9 @@
 size = Vector2(10, 100)
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_c61tb")
-speed = 100
+speed = 30
 
 [node name="BlackBullet" type="Sprite2D" parent="."]
 position = Vector2(0, -50)
