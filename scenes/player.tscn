@@ -1,10 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://b26p4sbiy1of8"]
+[gd_scene load_steps=7 format=3 uid="uid://b26p4sbiy1of8"]
 
 [ext_resource type="Texture2D" uid="uid://i162kykd2vt7" path="res://graphics/blue_soldier.png" id="1_03lcu"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_aw34g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvb4a"]
 radius = 52.6118
+
+[sub_resource type="Gradient" id="Gradient_3org8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5yffa"]
+gradient = SubResource("Gradient_3org8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jtw0i"]
+emission_shape = 1
+emission_sphere_radius = 7.47
+particle_flag_disable_z = true
+spread = 15.11
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1100.0
+initial_velocity_max = 1300.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+color = Color(1, 0.0117647, 0.0117647, 1)
+color_ramp = SubResource("GradientTexture1D_5yffa")
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -24,5 +44,13 @@ shape = SubResource("CircleShape2D_pvb4a")
 
 [node name="BulletStartPositions" type="Marker2D" parent="."]
 position = Vector2(126, 22)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(140, 22)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_jtw0i")
+lifetime = 0.05
+one_shot = true
+draw_order = 0
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]

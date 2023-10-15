@@ -21,7 +21,7 @@ position = Vector2(407, 364)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-4, 8)
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 
 [node name="red_soldier" parent="." instance=ExtResource("3_rfuek")]
 position = Vector2(818, 257)

@@ -23,6 +23,7 @@ func _physics_process(delta):
 	look_at(player_direction)
 	
 	if Input.is_action_pressed("primary_action") and can_shoot:
+		$GPUParticles2D.emitting = true
 		var bullet_direction = (player_direction - position).normalized()
 		var bullet_position = $BulletStartPositions.global_position
 		can_shoot = false
