@@ -2,18 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://coff3u63i63pe" path="res://graphics/red_soldier.png" id="1_7a3fa"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s37hr"]
-radius = 40.0
-height = 116.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpw7e"]
+radius = 44.3847
 
 [node name="red_soldier" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 7
 
 [node name="RedSoldier" type="Sprite2D" parent="."]
 position = Vector2(30, -18)
 texture = ExtResource("1_7a3fa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17, 5)
+position = Vector2(4, 4)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_s37hr")
+shape = SubResource("CircleShape2D_tpw7e")
