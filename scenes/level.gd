@@ -12,7 +12,8 @@ func _process(delta):
 	pass
 
 func _on_player_shoot(pos, direction):
-	var bullet = black_bullet_scene.instantiate() as Area2D
+	var bullet = black_bullet_scene.instantiate() as RigidBody2D
+	
 	bullet.position = pos
 	
 	bullet.rotation_degrees = rad_to_deg(direction.angle()) + (90 + randi() % 6 - 3)

@@ -1,23 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbuc4h17xmmwp"]
+[gd_scene load_steps=5 format=3 uid="uid://cbuc4h17xmmwp"]
 
 [ext_resource type="Script" path="res://scenes/black_bullet.gd" id="1_c61tb"]
 [ext_resource type="Texture2D" uid="uid://bld4ne2qoxr8v" path="res://graphics/yellow_bullet.png" id="2_v3i84"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm6xa"]
-size = Vector2(10, 100)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkjfe"]
+size = Vector2(2, 41)
 
-[node name="Area2D" type="Area2D"]
-scale = Vector2(0.25, 0.25)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6q81"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+particle_flag_disable_z = true
+spread = 19.66
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="Bullet" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 7
+max_contacts_reported = 2
+contact_monitor = true
+freeze = true
+freeze_mode = 1
 script = ExtResource("1_c61tb")
-speed = 30
 
-[node name="BlackBullet" type="Sprite2D" parent="."]
-position = Vector2(0, -50)
-scale = Vector2(0.5, 1)
+[node name="YellowBullet" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
 texture = ExtResource("2_v3i84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -50)
-shape = SubResource("RectangleShape2D_rm6xa")
+position = Vector2(0, -20.5)
+shape = SubResource("RectangleShape2D_hkjfe")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -15)
+emitting = false
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_v6q81")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.64
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
