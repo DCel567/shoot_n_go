@@ -5,7 +5,6 @@ signal player_shoot(pos, angle)
 @export var speed : int = 400
 var can_shoot : bool = true
 
-
 func _ready():
 	$shoot_timer.wait_time = 0.1
 
@@ -22,8 +21,9 @@ func _physics_process(delta):
 	
 	look_at(player_direction)
 	
-	if Input.is_action_pressed("primary_action") and can_shoot:
+	if Input.is_action_pressed("primary_action") and can_shoot and Globals.curr_bullet_amount > 0:
 		$GPUParticles2D.emitting = true
+		Globals.curr_bullet_amount -= 1
 		var bullet_direction = (player_direction - position).normalized()
 		var bullet_position = $BulletStartPositions.global_position
 		can_shoot = false

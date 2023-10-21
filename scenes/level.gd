@@ -4,7 +4,7 @@ var black_bullet_scene : PackedScene = preload("res://scenes/black_bullet.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,3 +20,4 @@ func _on_player_shoot(pos, direction):
 	bullet.direction = Vector2.from_angle(bullet.rotation - PI/2)
 	
 	$Projectiles.add_child(bullet)
+	$Ammo.update_ammo_label()

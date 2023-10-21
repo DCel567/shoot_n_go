@@ -13,7 +13,7 @@ func _physics_process(delta):
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	$GPUParticles2D.emitting = true
 	$YellowBullet.visible = false
-	$CollisionShape2D.set_deferred("disabled", true) 
+	$CollisionShape2D.set_deferred("disabled", true)
 	$CollisionParticlesWhite.start()
 
 

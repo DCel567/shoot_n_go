@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://61mf6bkcj6y2"]
+
+[ext_resource type="Script" path="res://UI/Ammo.gd" id="1_coux7"]
+[ext_resource type="Texture2D" uid="uid://b05tj8hbklrjn" path="res://graphics/ak12_mag.png" id="1_u0cco"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ncm8c"]
+font_size = 50
+
+[node name="Ammo" type="CanvasLayer"]
+script = ExtResource("1_coux7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.974
+anchor_right = 0.019
+anchor_bottom = 0.974
+offset_top = -80.0
+offset_right = 220.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_u0cco")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "30/30"
+label_settings = SubResource("LabelSettings_ncm8c")

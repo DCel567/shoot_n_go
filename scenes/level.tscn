@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://37ejfqggubt3"]
+[gd_scene load_steps=7 format=3 uid="uid://37ejfqggubt3"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_wvwn8"]
 [ext_resource type="PackedScene" uid="uid://668p0bwxoglc" path="res://scenes/ground.tscn" id="2_38xxh"]
 [ext_resource type="PackedScene" uid="uid://b26p4sbiy1of8" path="res://scenes/player.tscn" id="2_eu0ep"]
 [ext_resource type="PackedScene" uid="uid://bo350h1i2l8g0" path="res://scenes/red_soldier.tscn" id="3_rfuek"]
 [ext_resource type="PackedScene" uid="uid://b0v6fksgtwc65" path="res://scenes/wooden_house_1.tscn" id="5_w5kj3"]
+[ext_resource type="PackedScene" uid="uid://61mf6bkcj6y2" path="res://UI/Ammo.tscn" id="6_ckhby"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_wvwn8")
@@ -41,5 +42,7 @@ position = Vector2(327, -181)
 
 [node name="red_soldier5" parent="." instance=ExtResource("3_rfuek")]
 position = Vector2(802, -58)
+
+[node name="Ammo" parent="." instance=ExtResource("6_ckhby")]
 
 [connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]
