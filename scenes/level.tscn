@@ -45,4 +45,5 @@ position = Vector2(802, -58)
 
 [node name="Ammo" parent="." instance=ExtResource("6_ckhby")]
 
+[connection signal="player_reload_over" from="Player" to="." method="_on_player_player_reload_over"]
 [connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]
