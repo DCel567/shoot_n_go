@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 signal player_shoot(pos, angle)
 signal player_reload_over()
+signal player_start_reload()
 
 @export var speed : int = 400
-@export var reload_timer : int = 4
+@export var reload_timer : int = 2.5
 var can_shoot : bool = true
 var can_reload : bool = true
 
@@ -29,6 +30,7 @@ func _physics_process(delta):
 		can_reload = false
 		can_shoot = false
 		$ReloadTimer.start()
+		player_start_reload.emit()
 	
 	if Input.is_action_pressed("primary_action") and can_reload and can_shoot and Globals.curr_bullet_amount > 0:
 		$GPUParticles2D.emitting = true
