@@ -1,13 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://db04q6kajn2tv"]
 
-[ext_resource type="Script" path="res://UI/reloading_sign.gd" id="1_im1nt"]
+[sub_resource type="GDScript" id="GDScript_urkco"]
+script/source = "extends CanvasLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_4afyq"]
 font_size = 30
 font_color = Color(1, 1, 1, 0.803922)
 
 [node name="reloading_sign" type="CanvasLayer"]
-script = ExtResource("1_im1nt")
+script = SubResource("GDScript_urkco")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = -1

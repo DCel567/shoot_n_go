@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelParent
 
 var black_bullet_scene : PackedScene = preload("res://scenes/black_bullet.tscn")
 var reloading_label : PackedScene = preload("res://UI/reloading_sign.tscn")
