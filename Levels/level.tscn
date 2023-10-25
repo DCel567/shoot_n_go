@@ -10,7 +10,6 @@ script = ExtResource("1_pbfaq")
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_g7cpp")]
-position = Vector2(407, 364)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-4, 8)
@@ -19,5 +18,7 @@ zoom = Vector2(2.5, 2.5)
 [node name="ammo" parent="." instance=ExtResource("6_hovn8")]
 
 [connection signal="player_reload_over" from="Player" to="." method="_on_player_player_reload_over"]
+[connection signal="player_reload_over" from="Player" to="ammo" method="_on_player_player_reload_over"]
 [connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="player_start_reload" from="Player" to="." method="_on_player_start_reload"]
+[connection signal="player_start_reload" from="Player" to="ammo" method="_on_player_start_reload"]

@@ -5,7 +5,7 @@ signal player_reload_over()
 signal player_start_reload()
 
 @export var speed : int = 400
-@export var reload_timer : int = 2.5
+@export var reload_timer : float = 2.5
 var can_shoot : bool = true
 var can_reload : bool = true
 
@@ -29,6 +29,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("reload") and can_reload:
 		can_reload = false
 		can_shoot = false
+		Globals.is_reloading = true
 		$ReloadTimer.start()
 		player_start_reload.emit()
 	
@@ -51,4 +52,5 @@ func _on_reload_timer_timeout():
 	can_shoot = true
 	can_reload = true
 	player_reload_over.emit()
+	Globals.is_reloading = false
 	

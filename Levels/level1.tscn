@@ -10,25 +10,25 @@
 script = ExtResource("2_7ll4e")
 
 [node name="Ground" parent="." index="0" instance=ExtResource("2_p380a")]
-position = Vector2(441, 278)
+position = Vector2(59, -166)
 scale = Vector2(0.3, 0.3)
 
 [node name="WoodenHouse1" parent="." index="1" instance=ExtResource("3_76ymr")]
-position = Vector2(654, -141)
+position = Vector2(349, -448)
 
 [node name="red_soldier3" parent="." index="4" instance=ExtResource("2_e47ek")]
-position = Vector2(681, -185)
+position = Vector2(63, -489)
 
 [node name="red_soldier4" parent="." index="5" instance=ExtResource("2_e47ek")]
-position = Vector2(327, -181)
+position = Vector2(105, -358)
 
 [node name="red_soldier5" parent="." index="6" instance=ExtResource("2_e47ek")]
-position = Vector2(802, -58)
+position = Vector2(495, -502)
 
 [node name="red_soldier" parent="." index="7" instance=ExtResource("2_e47ek")]
-position = Vector2(818, 257)
+position = Vector2(620, -20)
 rotation = -1.55509
 
 [node name="red_soldier2" parent="." index="8" instance=ExtResource("2_e47ek")]
-position = Vector2(812, 492)
+position = Vector2(337, 87)
 rotation = 1.55509
