@@ -13,10 +13,11 @@ func generate_ray_casts() -> void:
 	for index in ray_count:
 		var ray = RayCast2D.new()
 		var angle = angle_between_rays * (index - ray_count / 2.0)
-		var ray_end = (
-			Vector2.from_angle(rotation+angle).normalized() * RAY_LENGTH)
+		var ray_end = \
+			Vector2.from_angle(rotation+angle).normalized() * RAY_LENGTH
 		
 		ray.target_position = ray_end
+		ray.set_collision_mask_value(3, true)
 		$Line2D.points[1] = ray_end
 		add_child(ray)
 		ray.enabled = true
