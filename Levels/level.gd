@@ -2,15 +2,12 @@ extends Node2D
 class_name LevelParent
 
 var black_bullet_scene : PackedScene = preload("res://scenes/black_bullet.tscn")
-var reloading_label : PackedScene = preload("res://UI/reloading_sign.tscn")
 
 signal cancel_reload
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -27,13 +24,12 @@ func _on_player_shoot(pos, direction):
 
 
 func _on_player_start_reload():
-	var bullet = reloading_label.instantiate()
-	add_child(bullet)
+	pass
 	
 
 func _on_player_player_reload_over():
 	$ammo.update_ammo_label()
-	remove_child(get_node("reloading_sign"))
+
 	
 
 

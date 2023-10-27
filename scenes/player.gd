@@ -1,11 +1,12 @@
 extends CharacterBody2D
+class_name Player
 
 signal player_shoot(pos, angle)
 signal player_reload_over()
 signal player_start_reload()
 
 @export var speed : int = 400
-@export var reload_timer : float = 2.5
+@export var reload_timer : float = 2
 var can_shoot : bool = true
 var can_reload : bool = true
 

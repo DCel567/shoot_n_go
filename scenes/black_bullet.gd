@@ -9,7 +9,6 @@ func _ready():
 func _physics_process(delta):
 	position += speed * direction
 
-
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	$GPUParticles2D.emitting = true
 	$YellowBullet.visible = false

@@ -26,9 +26,7 @@ position = Vector2(105, -358)
 position = Vector2(495, -502)
 
 [node name="red_soldier" parent="." index="7" instance=ExtResource("2_e47ek")]
-position = Vector2(620, -20)
-rotation = -1.55509
+position = Vector2(383, -47)
 
 [node name="red_soldier2" parent="." index="8" instance=ExtResource("2_e47ek")]
-position = Vector2(337, 87)
-rotation = 1.55509
+position = Vector2(-162, 73)
