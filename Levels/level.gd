@@ -3,12 +3,13 @@ class_name LevelParent
 
 var black_bullet_scene : PackedScene = preload("res://scenes/black_bullet.tscn")
 
+
 signal cancel_reload
 
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_player_shoot(pos, direction):
