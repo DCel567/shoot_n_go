@@ -1,8 +1,10 @@
 extends CharacterBody2D
 class_name RedSoldier
 
-const SPEED = 300.0
+@export var SPEED : float = 300.0
 const RAY_LENGTH = 2000.0
+
+@export var HP_AMOUNT : int = 40
 
 var angle_cone_of_vision = deg_to_rad(60)
 var angle_between_rays = deg_to_rad(5)
@@ -18,12 +20,17 @@ func generate_ray_casts() -> void:
 		
 		ray.target_position = ray_end
 		ray.set_collision_mask_value(3, true)
-		$Line2D.points[1] = ray_end
 		add_child(ray)
 		ray.enabled = true
-		
-
+	
+	
+func hit():
+	$hp_module.change(-10)
+	
+	
 func _ready():
+	$hp_module.max_hp_amount = HP_AMOUNT
+	$hp_module.refill()
 	generate_ray_casts()
 
 func _physics_process(delta):

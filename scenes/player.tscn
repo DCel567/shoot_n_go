@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b26p4sbiy1of8"]
+[gd_scene load_steps=8 format=3 uid="uid://b26p4sbiy1of8"]
 
 [ext_resource type="Texture2D" uid="uid://i162kykd2vt7" path="res://graphics/blue_soldier.png" id="1_03lcu"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_aw34g"]
+[ext_resource type="PackedScene" uid="uid://buu2b0b36hlqs" path="res://modules/hp_module.tscn" id="3_gq5nh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvb4a"]
 radius = 52.6118
@@ -55,6 +56,9 @@ draw_order = 0
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="hp_module" parent="." instance=ExtResource("3_gq5nh")]
+max_hp_amount = 40
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

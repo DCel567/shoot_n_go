@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buu2b0b36hlqs"]
+
+[ext_resource type="Script" path="res://modules/hp_module.gd" id="1_jp12t"]
+
+[node name="hp_module" type="Node"]
+script = ExtResource("1_jp12t")
