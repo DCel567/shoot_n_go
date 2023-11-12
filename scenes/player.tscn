@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b26p4sbiy1of8"]
+[gd_scene load_steps=10 format=3 uid="uid://b26p4sbiy1of8"]
 
 [ext_resource type="Texture2D" uid="uid://i162kykd2vt7" path="res://graphics/blue_soldier.png" id="1_03lcu"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_aw34g"]
 [ext_resource type="PackedScene" uid="uid://buu2b0b36hlqs" path="res://modules/hp_module.tscn" id="3_gq5nh"]
+[ext_resource type="PackedScene" uid="uid://lt711d6lkg14" path="res://modules/hitbox_module.tscn" id="4_x4w2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvb4a"]
 radius = 52.6118
@@ -26,6 +27,9 @@ orbit_velocity_max = 0.0
 scale_max = 2.0
 color = Color(1, 0.0117647, 0.0117647, 1)
 color_ramp = SubResource("GradientTexture1D_5yffa")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ke7fk"]
+radius = 44.0
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -59,6 +63,13 @@ one_shot = true
 
 [node name="hp_module" parent="." instance=ExtResource("3_gq5nh")]
 max_hp_amount = 40
+
+[node name="hitbox_module" parent="." node_paths=PackedStringArray("hp_module") instance=ExtResource("4_x4w2a")]
+collision_mask = 8
+hp_module = NodePath("../hp_module")
+
+[node name="CollisionProjectiles" type="CollisionShape2D" parent="hitbox_module"]
+shape = SubResource("CircleShape2D_ke7fk")
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

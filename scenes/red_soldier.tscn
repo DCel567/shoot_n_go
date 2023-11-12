@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo350h1i2l8g0"]
+[gd_scene load_steps=7 format=3 uid="uid://bo350h1i2l8g0"]
 
 [ext_resource type="Texture2D" uid="uid://coff3u63i63pe" path="res://graphics/red_soldier.png" id="1_7a3fa"]
 [ext_resource type="Script" path="res://scenes/red_soldier.gd" id="1_e8fsf"]
 [ext_resource type="PackedScene" uid="uid://buu2b0b36hlqs" path="res://modules/hp_module.tscn" id="3_o00f1"]
+[ext_resource type="PackedScene" uid="uid://lt711d6lkg14" path="res://modules/hitbox_module.tscn" id="4_u4hsf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpw7e"]
-radius = 44.3847
+radius = 44.1814
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6sfd"]
+radius = 44.0
 
 [node name="red_soldier" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -17,9 +21,17 @@ script = ExtResource("1_e8fsf")
 position = Vector2(30, -18)
 texture = ExtResource("1_7a3fa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 4)
+[node name="CollisionObstacles" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CircleShape2D_tpw7e")
 
 [node name="hp_module" parent="." instance=ExtResource("3_o00f1")]
+max_hp_amount = 40
+
+[node name="hitbox_module" parent="." node_paths=PackedStringArray("hp_module") instance=ExtResource("4_u4hsf")]
+collision_layer = 2
+collision_mask = 8
+hp_module = NodePath("../hp_module")
+
+[node name="CollisionProjectiles" type="CollisionShape2D" parent="hitbox_module"]
+shape = SubResource("CircleShape2D_k6sfd")

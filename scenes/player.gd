@@ -14,10 +14,10 @@ func _ready():
 	$shoot_timer.wait_time = 0.1
 	$ReloadTimer.wait_time = reload_timer
 
-func _process(delta):
+func _process(_delta):
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	
 	velocity = direction * speed

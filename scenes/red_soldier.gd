@@ -4,8 +4,6 @@ class_name RedSoldier
 @export var SPEED : float = 300.0
 const RAY_LENGTH = 2000.0
 
-@export var HP_AMOUNT : int = 40
-
 var angle_cone_of_vision = deg_to_rad(60)
 var angle_between_rays = deg_to_rad(5)
 
@@ -24,16 +22,14 @@ func generate_ray_casts() -> void:
 		ray.enabled = true
 	
 	
-func hit():
-	$hp_module.change(-10)
+func hit(hit_points):
+	$hitbox_module.damage(hit_points)
 	
 	
 func _ready():
-	$hp_module.max_hp_amount = HP_AMOUNT
-	$hp_module.refill()
 	generate_ray_casts()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var target 
 	for ray in get_children():
 		if ray is RayCast2D:
@@ -42,6 +38,6 @@ func _physics_process(delta):
 				look_at(ray.get_collision_point())
 				break
 			
-	var does_see_player = target != null
+	#var does_see_player = target != null
 
 
