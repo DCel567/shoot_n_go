@@ -23,3 +23,8 @@ func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_ind
 func _on_collision_particles_white_timeout():
 	queue_free()
 	
+
+
+func _on_life_time_timer_timeout():
+	#pass
+	queue_free()
