@@ -9,16 +9,19 @@ signal transitioned(state_name)
 
 
 func _ready():
+	# yield(owner, "ready")
 	for child in get_children():
 		child.state_machine = self
 	
-	state.enter()
+	#state.enter()
 
 func _process(delta):
-	state.update(delta)
+	#state.update(delta)
+	pass
 
 func _physics_process(delta):
-	state.physics_update(delta)
+	#state.physics_update(delta)
+	pass
 	
 func transition_to(target_state_name: String, msg: Dictionary = {}):
 	if not has_node(target_state_name):
