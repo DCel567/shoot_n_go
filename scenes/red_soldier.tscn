@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo350h1i2l8g0"]
+[gd_scene load_steps=7 format=3 uid="uid://bo350h1i2l8g0"]
 
 [ext_resource type="Texture2D" uid="uid://coff3u63i63pe" path="res://graphics/red_soldier.png" id="1_7a3fa"]
 [ext_resource type="Script" path="res://scenes/red_soldier.gd" id="1_e8fsf"]
 [ext_resource type="PackedScene" uid="uid://buu2b0b36hlqs" path="res://modules/hp_module.tscn" id="3_o00f1"]
 [ext_resource type="PackedScene" uid="uid://lt711d6lkg14" path="res://modules/hitbox_module.tscn" id="4_u4hsf"]
-[ext_resource type="Script" path="res://scenes/BehaviorStateMachine.gd" id="5_3c22r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpw7e"]
 radius = 44.1814
@@ -36,6 +35,3 @@ hp_module = NodePath("../hp_module")
 
 [node name="CollisionProjectiles" type="CollisionShape2D" parent="hitbox_module"]
 shape = SubResource("CircleShape2D_k6sfd")
-
-[node name="BehaviorStateMachine" type="Node" parent="."]
-script = ExtResource("5_3c22r")
