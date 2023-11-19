@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo350h1i2l8g0"]
+[gd_scene load_steps=11 format=3 uid="uid://bo350h1i2l8g0"]
 
 [ext_resource type="Script" path="res://enemy/red_soldier.gd" id="1_qpwe2"]
 [ext_resource type="Texture2D" uid="uid://coff3u63i63pe" path="res://graphics/red_soldier.png" id="2_l1pdt"]
 [ext_resource type="PackedScene" uid="uid://buu2b0b36hlqs" path="res://modules/hp_module.tscn" id="3_0kwgf"]
 [ext_resource type="PackedScene" uid="uid://lt711d6lkg14" path="res://modules/hitbox_module.tscn" id="4_71tfk"]
 [ext_resource type="PackedScene" uid="uid://cobt3f4jf312b" path="res://enemy/state_machine.tscn" id="5_gp62a"]
+[ext_resource type="Script" path="res://enemy/idle.gd" id="6_h0cxi"]
+[ext_resource type="Script" path="res://enemy/attack.gd" id="7_y5nf1"]
+[ext_resource type="Texture2D" uid="uid://bg8qqfffhiwn8" path="res://graphics/exclamation.png" id="8_f1gpe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpw7e"]
 radius = 44.1814
@@ -17,7 +20,6 @@ scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_qpwe2")
-SPEED = null
 
 [node name="RedSoldier" type="Sprite2D" parent="."]
 position = Vector2(30, -18)
@@ -39,3 +41,15 @@ hp_module = NodePath("../hp_module")
 shape = SubResource("CircleShape2D_k6sfd")
 
 [node name="state_machine" parent="." instance=ExtResource("5_gp62a")]
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="state_machine"]
+script = ExtResource("6_h0cxi")
+
+[node name="attack" type="Node" parent="state_machine"]
+script = ExtResource("7_y5nf1")
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+position = Vector2(0, -104)
+scale = Vector2(2.1, 2.02)
+texture = ExtResource("8_f1gpe")

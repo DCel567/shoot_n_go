@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://da252uuj77v1x" path="res://Levels/level.tscn" id="1_uce8p"]
 [ext_resource type="Script" path="res://Levels/level1.gd" id="2_7ll4e"]
-[ext_resource type="PackedScene" uid="uid://bo350h1i2l8g0" path="res://scenes/red_soldier.tscn" id="2_e47ek"]
+[ext_resource type="PackedScene" uid="uid://bo350h1i2l8g0" path="res://enemy/red_soldier.tscn" id="2_e47ek"]
 [ext_resource type="PackedScene" uid="uid://668p0bwxoglc" path="res://scenes/ground.tscn" id="2_p380a"]
 [ext_resource type="PackedScene" uid="uid://b0v6fksgtwc65" path="res://scenes/wooden_house_1.tscn" id="3_76ymr"]
 
@@ -16,17 +16,10 @@ scale = Vector2(0.3, 0.3)
 [node name="WoodenHouse1" parent="." index="1" instance=ExtResource("3_76ymr")]
 position = Vector2(349, -448)
 
-[node name="red_soldier3" parent="." index="4" instance=ExtResource("2_e47ek")]
-position = Vector2(63, -489)
+[node name="red_soldier2" parent="." index="4" instance=ExtResource("2_e47ek")]
+position = Vector2(338, 52)
+rotation = -0.0680678
 
-[node name="red_soldier4" parent="." index="5" instance=ExtResource("2_e47ek")]
-position = Vector2(105, -358)
-
-[node name="red_soldier5" parent="." index="6" instance=ExtResource("2_e47ek")]
-position = Vector2(495, -502)
-
-[node name="red_soldier" parent="." index="7" instance=ExtResource("2_e47ek")]
-position = Vector2(383, -47)
-
-[node name="red_soldier2" parent="." index="8" instance=ExtResource("2_e47ek")]
-position = Vector2(-162, 73)
+[node name="red_soldier" parent="." index="6" instance=ExtResource("2_e47ek")]
+position = Vector2(220, 174)
+rotation = -0.750492

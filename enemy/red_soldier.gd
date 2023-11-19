@@ -4,15 +4,8 @@ class_name RedSoldier
 @export var SPEED : float = 300.0
 const RAY_LENGTH = 2000.0
 
-var angle_cone_of_vision = deg_to_rad(60)
+var angle_cone_of_vision = deg_to_rad(90)
 var angle_between_rays = deg_to_rad(5)
-
-enum States { IDLE, ATTACK, SEEK }
-# soldier is IDLE if he never previously seen player
-# soldier is ATTACK if he is looking at the player right now
-# soldier is SEEK if he is aware of player's presence
-
-var _state : int = States.IDLE
 
 var has_target = false
 
@@ -22,14 +15,20 @@ func generate_ray_casts() -> void:
 	
 	for index in ray_count:
 		var ray = RayCast2D.new()
+		#var vis_ray = Line2D.new()
 		var angle = angle_between_rays * (index - ray_count / 2.0)
-		var ray_end = \
-			Vector2.from_angle(rotation+angle).normalized() * RAY_LENGTH
 		
+		var ray_end = \
+			Vector2.from_angle(angle).normalized() * RAY_LENGTH
+
 		ray.target_position = ray_end
 		ray.set_collision_mask_value(3, true)
 		add_child(ray)
 		ray.enabled = true
+		
+		#vis_ray.add_point(Vector2(0, 0))
+		#vis_ray.add_point(ray_end)
+		#add_child(vis_ray)
 
 
 func hit(hit_points):
@@ -37,6 +36,7 @@ func hit(hit_points):
 
 
 func _ready():
+	$Exclamation.visible = false
 	generate_ray_casts()
 
 
