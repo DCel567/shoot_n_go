@@ -53,3 +53,11 @@ script = ExtResource("7_y5nf1")
 position = Vector2(0, -104)
 scale = Vector2(2.1, 2.02)
 texture = ExtResource("8_f1gpe")
+
+[node name="BurstTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="shoot_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BurstTimer" to="state_machine/attack" method="_on_burst_timer_timeout"]
+[connection signal="timeout" from="shoot_timer" to="state_machine/attack" method="_on_shoot_timer_timeout"]

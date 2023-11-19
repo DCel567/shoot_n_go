@@ -8,7 +8,8 @@ signal player_start_reload()
 @export var speed : int = 400
 @export var reload_timer : float = 2
 var can_shoot : bool = true
-var can_reload : bool = true
+var can_reload : bool = false
+var reloading : bool = false
 
 func _ready():
 	$shoot_timer.wait_time = 0.1
@@ -28,13 +29,15 @@ func _physics_process(_delta):
 	look_at(player_direction)
 	
 	if Input.is_action_pressed("reload") and can_reload:
+		reloading = true
 		can_reload = false
 		can_shoot = false
 		Globals.is_reloading = true
 		$ReloadTimer.start()
 		player_start_reload.emit()
 	
-	if Input.is_action_pressed("primary_action") and can_reload and can_shoot and Globals.curr_bullet_amount > 0:
+	if Input.is_action_pressed("primary_action") and !reloading and can_shoot and Globals.curr_bullet_amount > 0:
+		can_reload = true
 		$GPUParticles2D.emitting = true
 		Globals.curr_bullet_amount -= 1
 		var bullet_direction = (player_direction - position).normalized()
@@ -51,7 +54,7 @@ func _on_shoot_timer_timeout():
 func _on_reload_timer_timeout():
 	Globals.curr_bullet_amount = Globals.max_bullet_amount
 	can_shoot = true
-	can_reload = true
+	reloading = false
 	player_reload_over.emit()
 	Globals.is_reloading = false
 	
