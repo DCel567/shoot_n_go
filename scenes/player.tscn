@@ -73,3 +73,4 @@ shape = SubResource("CircleShape2D_ke7fk")
 
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="died_event_handler" from="hp_module" to="." method="_on_hp_module_died_event_handler"]

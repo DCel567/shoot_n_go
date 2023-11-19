@@ -16,7 +16,7 @@ func change(hp_changed_by : int):
 	curr_hp_amount += hp_changed_by
 	if curr_hp_amount <= 0:
 		died_event_handler.emit()
-		get_parent().queue_free()
+		#get_parent().queue_free()
 
 
 # Called to fully restore hp

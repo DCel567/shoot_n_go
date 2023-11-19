@@ -1,14 +1,16 @@
 extends CharacterBody2D
 class_name RedSoldier
 
+signal enemy_shoot(pos, angle)
+
 @export var SPEED : float = 300.0
 const RAY_LENGTH = 2000.0
 
 var angle_cone_of_vision = deg_to_rad(90)
 var angle_between_rays = deg_to_rad(5)
 
-var has_target = false
-
+var has_target : bool = false
+var look_direction : Vector2
 
 func generate_ray_casts() -> void:
 	var ray_count = angle_cone_of_vision / angle_between_rays
@@ -47,9 +49,16 @@ func _physics_process(_delta):
 		if ray is RayCast2D:
 			if ray.is_colliding() and ray.get_collider() is Player:
 				target = ray.get_collider()
-				look_at(ray.get_collision_point())
+				look_direction = ray.get_collision_point()
+				look_at(look_direction)
 				break
 			
 	has_target = target != null
 
 
+func _on_attack_enemy_shoot(pos, angle):
+	enemy_shoot.emit(pos, angle)
+
+
+func _on_hp_module_died_event_handler():
+	queue_free()

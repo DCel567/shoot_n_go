@@ -15,7 +15,7 @@ radius = 44.1814
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6sfd"]
 radius = 44.0
 
-[node name="red_soldier" type="CharacterBody2D"]
+[node name="red_soldier" type="CharacterBody2D" groups=["Enemies"]]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 7
@@ -58,6 +58,13 @@ texture = ExtResource("8_f1gpe")
 one_shot = true
 
 [node name="shoot_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
+[node name="BulletStartPositions" type="Marker2D" parent="."]
+position = Vector2(126, 22)
+
+[connection signal="died_event_handler" from="hp_module" to="." method="_on_hp_module_died_event_handler"]
+[connection signal="enemy_shoot" from="state_machine/attack" to="." method="_on_attack_enemy_shoot"]
 [connection signal="timeout" from="BurstTimer" to="state_machine/attack" method="_on_burst_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="state_machine/attack" method="_on_shoot_timer_timeout"]

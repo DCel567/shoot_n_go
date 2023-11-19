@@ -4,6 +4,7 @@ class_name Player
 signal player_shoot(pos, angle)
 signal player_reload_over()
 signal player_start_reload()
+signal player_died()
 
 @export var speed : int = 400
 @export var reload_timer : float = 2
@@ -48,6 +49,10 @@ func _physics_process(_delta):
 		player_shoot.emit(bullet_position, bullet_direction)
 
 
+func hit(hit_points):
+	$hitbox_module.damage(hit_points)
+	
+
 func _on_shoot_timer_timeout():
 	can_shoot = true
 
@@ -58,3 +63,6 @@ func _on_reload_timer_timeout():
 	player_reload_over.emit()
 	Globals.is_reloading = false
 	
+
+func _on_hp_module_died_event_handler():
+	player_died.emit()
