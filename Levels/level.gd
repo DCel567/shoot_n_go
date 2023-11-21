@@ -9,7 +9,7 @@ signal cancel_reload
 
 func _ready():
 	var enemies = get_tree().get_nodes_in_group("Enemies")
-	#print(type(enemies))
+
 	for x in enemies:
 		x.enemy_shoot.connect(_on_enemy_shoot)
 

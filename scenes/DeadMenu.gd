@@ -1,5 +1,5 @@
 extends Control
-var dead: bool = false
+
 
 func _ready():
 	hide()
@@ -9,7 +9,11 @@ func _process(_delta):
 
 
 
+
+func _on_button_button_down():
+	print("restart")
+
+
 func _on_button_2_button_up():
-	print('quit pressed')
-	get_tree().paused = false
+	print("quit up")
 	get_tree().quit()

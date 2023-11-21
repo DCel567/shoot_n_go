@@ -8,7 +8,7 @@ var can_shoot: bool = true
 var look_direction : Vector2
 
 func enter(_msg := {}):
-	print("attack state entered")
+	pass
 
 
 # corresponds to _process()
@@ -43,11 +43,9 @@ func make_burst():
 		shots_fired_in_burst += 1
 
 
-
 func _on_burst_timer_timeout():
 	make_burst()
 	now_shooting = false
-	
 
 
 func exit():

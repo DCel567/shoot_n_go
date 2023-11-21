@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://scenes/DeadMenu.gd" id="1_pny0a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m0cj0"]
-font_size = 150
+font_size = 100
 
 [node name="DeadMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +34,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "YOU DIED"
+text = "That's how mafia works"
 label_settings = SubResource("LabelSettings_m0cj0")
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -46,4 +47,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Quit"
 
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_up"]

@@ -2,7 +2,7 @@ extends State
 
 
 func enter(_msg := {}):
-	print("idle state entered")
+	pass
 
 
 # corresponds to _process()
