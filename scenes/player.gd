@@ -8,13 +8,16 @@ signal player_died()
 
 @export var speed : int = 400
 @export var reload_timer : float = 2
-var can_shoot : bool = true
-var can_reload : bool = false
-var reloading : bool = false
+
+@onready var can_shoot : bool = true
+@onready var can_reload : bool = false
+@onready var reloading : bool = false
 
 func _ready():
 	$shoot_timer.wait_time = 0.1
 	$ReloadTimer.wait_time = reload_timer
+	Globals.curr_bullet_amount = Globals.max_bullet_amount
+	Globals.is_reloading = false
 
 func _process(_delta):
 	pass

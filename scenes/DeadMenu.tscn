@@ -47,5 +47,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 75
 text = "Quit"
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_visibility_changed"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_up"]

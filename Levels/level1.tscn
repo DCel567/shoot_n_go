@@ -23,3 +23,7 @@ rotation = -0.0680678
 [node name="red_soldier" parent="." index="5" instance=ExtResource("2_e47ek")]
 position = Vector2(614, -39)
 rotation = -0.750492
+
+[node name="red_soldier3" parent="." index="6" instance=ExtResource("2_e47ek")]
+position = Vector2(530, -374)
+rotation = -2.04902

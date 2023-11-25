@@ -43,6 +43,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	$Exclamation.rotation = -rotation
 	
 	var target 
 	for ray in get_children():

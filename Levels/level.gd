@@ -8,10 +8,16 @@ var red_soldier : PackedScene = preload("res://enemy/red_soldier.tscn")
 signal cancel_reload
 
 func _ready():
+	if get_tree().paused == true:
+		# just restarted
+		#$Player.can_shoot = false
+		get_tree().paused = false
+		
 	var enemies = get_tree().get_nodes_in_group("Enemies")
 
 	for x in enemies:
 		x.enemy_shoot.connect(_on_enemy_shoot)
+
 
 func _process(_delta):
 	pass
@@ -49,4 +55,4 @@ func _on_enemy_shoot(pos, direction):
 
 func _on_player_died():
 	$ammo/DeadMenu.show()
-	get_tree().paused = true
+	#get_tree().paused = true

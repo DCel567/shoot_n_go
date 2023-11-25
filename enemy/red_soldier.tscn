@@ -50,6 +50,7 @@ script = ExtResource("6_h0cxi")
 script = ExtResource("7_y5nf1")
 
 [node name="Exclamation" type="Sprite2D" parent="."]
+light_mask = 0
 position = Vector2(0, -104)
 scale = Vector2(2.1, 2.02)
 texture = ExtResource("8_f1gpe")
