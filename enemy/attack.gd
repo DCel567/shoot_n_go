@@ -33,11 +33,11 @@ func make_burst():
 	var shots_fired_in_burst = 0
 	
 	while shots_fired_in_burst < 5:
-		#print("shot fired ", shots_fired_in_burst)
+
 		var bullet_direction = (look_direction - $"../..".position).normalized()
 		var bullet_position = $"../../BulletStartPositions".global_position
 		enemy_shoot.emit(bullet_position, bullet_direction)
-		#print("shoot: ", bullet_direction, ", " , bullet_position)
+
 		$"../../shoot_timer".start()
 		await $"../../shoot_timer".timeout
 		shots_fired_in_burst += 1

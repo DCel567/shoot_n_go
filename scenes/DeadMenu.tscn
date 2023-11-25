@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://1wxbwiwhodqv"]
+[gd_scene load_steps=4 format=3 uid="uid://1wxbwiwhodqv"]
 
+[ext_resource type="Theme" uid="uid://dql66qetxuxw7" path="res://Resources/Menus.tres" id="1_avqk0"]
 [ext_resource type="Script" path="res://scenes/DeadMenu.gd" id="1_pny0a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m0cj0"]
@@ -13,7 +14,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_avqk0")
 script = ExtResource("1_pny0a")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.980392, 0, 0.294118, 1)
+layout_mode = 0
+offset_right = 1921.0
+offset_bottom = 1077.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
