@@ -4,6 +4,8 @@ class_name RedSoldier
 signal enemy_shoot(pos, angle)
 
 @export var SPEED : float = 300.0
+@export var need_turnaround_on_idle = true
+@export var random_turnaround_delay = true
 const RAY_LENGTH = 2000.0
 
 var angle_cone_of_vision = deg_to_rad(90)

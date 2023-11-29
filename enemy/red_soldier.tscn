@@ -55,6 +55,9 @@ position = Vector2(0, -104)
 scale = Vector2(2.1, 2.02)
 texture = ExtResource("8_f1gpe")
 
+[node name="turn_around_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [node name="BurstTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -67,5 +70,6 @@ position = Vector2(126, 22)
 
 [connection signal="died_event_handler" from="hp_module" to="." method="_on_hp_module_died_event_handler"]
 [connection signal="enemy_shoot" from="state_machine/attack" to="." method="_on_attack_enemy_shoot"]
+[connection signal="timeout" from="turn_around_timer" to="state_machine/idle" method="_on_turn_around_timer_timeout"]
 [connection signal="timeout" from="BurstTimer" to="state_machine/attack" method="_on_burst_timer_timeout"]
 [connection signal="timeout" from="shoot_timer" to="state_machine/attack" method="_on_shoot_timer_timeout"]
