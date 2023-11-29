@@ -1,4 +1,30 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dql66qetxuxw7"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dql66qetxuxw7"]
+
+[sub_resource type="FontFile" id="FontFile_skgdu"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/75/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/75/0/ascent = 0.0
+cache/0/75/0/descent = 0.0
+cache/0/75/0/underline_position = 0.0
+cache/0/75/0/underline_thickness = 0.0
+cache/0/75/0/scale = 1.0
+cache/0/75/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/75/0/kerning_overrides/75/0 = Vector2(0, 0)
+cache/0/75/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/75/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clu8y"]
 bg_color = Color(0.498039, 0.498039, 0.498039, 1)
@@ -15,5 +41,6 @@ border_width_right = 2
 border_width_bottom = 2
 
 [resource]
+Button/fonts/font = SubResource("FontFile_skgdu")
 Button/styles/hover = SubResource("StyleBoxFlat_clu8y")
 Button/styles/normal = SubResource("StyleBoxFlat_04of5")

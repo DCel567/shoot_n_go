@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjy6mmuaqs08v"]
+
+[ext_resource type="Texture2D" uid="uid://cp7tyivvaw8i6" path="res://graphics/3291117-2330173147.png" id="1_2i3ay"]
+[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_volmd"]
+[ext_resource type="Theme" uid="uid://dql66qetxuxw7" path="res://Resources/Menus.tres" id="2_jsyxn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tk1um"]
+font_size = 64
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_volmd")
+
+[node name="3291117-2330173147" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_2i3ay")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_jsyxn")
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 400
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Any Deaths Matter"
+label_settings = SubResource("LabelSettings_tk1um")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectLevelButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Select level"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/SelectLevelButton" to="." method="_on_select_level_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
