@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bo350h1i2l8g0"]
+[gd_scene load_steps=12 format=3 uid="uid://bo350h1i2l8g0"]
 
 [ext_resource type="Script" path="res://enemy/red_soldier.gd" id="1_qpwe2"]
 [ext_resource type="Texture2D" uid="uid://coff3u63i63pe" path="res://graphics/red_soldier.png" id="2_l1pdt"]
 [ext_resource type="PackedScene" uid="uid://buu2b0b36hlqs" path="res://modules/hp_module.tscn" id="3_0kwgf"]
 [ext_resource type="PackedScene" uid="uid://lt711d6lkg14" path="res://modules/hitbox_module.tscn" id="4_71tfk"]
+[ext_resource type="Script" path="res://enemy/moveto_module.gd" id="4_i6dln"]
 [ext_resource type="PackedScene" uid="uid://cobt3f4jf312b" path="res://enemy/state_machine.tscn" id="5_gp62a"]
 [ext_resource type="Script" path="res://enemy/idle.gd" id="6_h0cxi"]
 [ext_resource type="Script" path="res://enemy/attack.gd" id="7_y5nf1"]
@@ -31,6 +32,9 @@ shape = SubResource("CircleShape2D_tpw7e")
 
 [node name="hp_module" parent="." instance=ExtResource("3_0kwgf")]
 max_hp_amount = 40
+
+[node name="moveto_module" type="Node" parent="."]
+script = ExtResource("4_i6dln")
 
 [node name="hitbox_module" parent="." node_paths=PackedStringArray("hp_module") instance=ExtResource("4_71tfk")]
 collision_layer = 2

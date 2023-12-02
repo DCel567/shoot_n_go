@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgb1kwnfbw4qj"]
+
+[ext_resource type="Texture2D" uid="uid://cp7tyivvaw8i6" path="res://graphics/3291117-2330173147.png" id="1_3aptt"]
+[ext_resource type="Script" path="res://scenes/SelectLevelMenu.gd" id="1_oot03"]
+[ext_resource type="Theme" uid="uid://dql66qetxuxw7" path="res://Resources/Menus.tres" id="2_gtowe"]
+[ext_resource type="Texture2D" uid="uid://bmox6x6fqjjay" path="res://graphics/level1_button.png" id="2_wjoca"]
+[ext_resource type="Texture2D" uid="uid://cv46d6jupqn3t" path="res://graphics/level1_button_pressed.png" id="3_qenol"]
+[ext_resource type="Texture2D" uid="uid://caisg66aarxv7" path="res://graphics/level2_button.png" id="3_uqtox"]
+[ext_resource type="Texture2D" uid="uid://covrnid1rqtd0" path="res://graphics/level1_button_hover.png" id="4_1v312"]
+[ext_resource type="Texture2D" uid="uid://rxuks3oq8uk1" path="res://graphics/level2_button_pressed.png" id="6_o0or1"]
+[ext_resource type="Texture2D" uid="uid://c2tq43ykcfx2c" path="res://graphics/level2_button_hover.png" id="7_ioiu4"]
+
+[node name="SelectLevelMenu" type="CanvasLayer"]
+script = ExtResource("1_oot03")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_3aptt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gtowe")
+theme_override_constants/margin_left = 700
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 700
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Select level
+"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="level1" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_wjoca")
+texture_pressed = ExtResource("3_qenol")
+texture_hover = ExtResource("4_1v312")
+
+[node name="level2" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_uqtox")
+texture_pressed = ExtResource("6_o0or1")
+texture_hover = ExtResource("7_ioiu4")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/GridContainer/level1" to="." method="_on_level_1_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/GridContainer/level2" to="." method="_on_level_2_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]

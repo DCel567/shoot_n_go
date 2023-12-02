@@ -15,7 +15,6 @@ func _on_button_2_button_up():
 
 func _on_button_visibility_changed():
 	if visible == true:
-		#print("visible")
 		get_tree().paused = true
 
 

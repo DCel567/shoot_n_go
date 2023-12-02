@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://drmoc6p23tj2e"]
+
+[ext_resource type="Texture2D" uid="uid://q0whfk3x04t" path="res://graphics/move_point.png" id="1_g2ouu"]
+[ext_resource type="Script" path="res://enemy/move_point.gd" id="1_werbv"]
+
+[node name="move_point" type="Node2D"]
+script = ExtResource("1_werbv")
+
+[node name="MovePoint" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_g2ouu")
+
+[node name="coords" type="Marker2D" parent="."]
