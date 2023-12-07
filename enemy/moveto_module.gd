@@ -6,7 +6,10 @@ var curr_pos: int = 0
 var have_positions: bool = false
 var positions_amount: int = 0
 
-# Called when the node enters the scene tree for the first time.
+var moving: bool = false
+var holding: bool = false
+
+
 func _ready():
 	curr_pos = 0
 	var children = $"..".find_children("move_point*")
@@ -15,9 +18,21 @@ func _ready():
 		have_positions = true
 		
 		positions.push_back(child.get_coords())
+		get_tree().queue_delete(child)
 		positions_amount += 1
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	if moving:
+		var direction = (Vector2(positions[0])-$"..".global_position).normalized()
+		$"..".velocity = direction * $"..".SPEED
+		$"..".move_and_slide()
+	
+
+func start_moving():
+	moving = true
+	
+
+
+
+

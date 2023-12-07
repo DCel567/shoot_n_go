@@ -26,5 +26,7 @@ position = Vector2(213, -370)
 rotation = 0.410152
 
 [node name="move_point" parent="red_soldier" index="11" instance=ExtResource("6_m0h8e")]
+position = Vector2(173.531, 238.593)
 
 [node name="move_point2" parent="red_soldier" index="12" instance=ExtResource("6_m0h8e")]
+position = Vector2(-115.158, -224.719)

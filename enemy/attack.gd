@@ -8,7 +8,7 @@ var can_shoot: bool = true
 var look_direction : Vector2
 
 func enter(_msg := {}):
-	pass
+	$"../../moveto_module".start_moving()
 
 
 # corresponds to _process()
