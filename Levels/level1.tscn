@@ -30,3 +30,11 @@ position = Vector2(173.531, 238.593)
 
 [node name="move_point2" parent="red_soldier" index="12" instance=ExtResource("6_m0h8e")]
 position = Vector2(-115.158, -224.719)
+before_move = 5.0
+
+[node name="move_point3" parent="red_soldier" index="13" instance=ExtResource("6_m0h8e")]
+position = Vector2(328.697, -518.033)
+before_move = 0.0
+
+[node name="move_point4" parent="red_soldier" index="14" instance=ExtResource("6_m0h8e")]
+position = Vector2(500.774, -1055.2)
