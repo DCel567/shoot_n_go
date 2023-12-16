@@ -50,6 +50,27 @@ func _physics_process(_delta):
 		$shoot_timer.start()
 		
 		player_shoot.emit(bullet_position, bullet_direction)
+		
+	if Input.is_action_just_pressed("secondary_action"):
+		var vis_ray = Line2D.new()
+		vis_ray.width = 5
+		vis_ray.default_color = Color(Color.DARK_RED, 0.5)
+		
+		vis_ray.add_point(Vector2(0, 0))
+		vis_ray.add_point(Vector2.RIGHT * 2400)
+		$Laser.add_child(vis_ray)
+		$PistolSprite.visible = true
+		$BlueSoldier.visible = false
+		
+	if Input.is_action_pressed("secondary_action"):
+		print("laser")
+	
+	if Input.is_action_just_released("secondary_action"):
+		var laser = $Laser.get_children()
+		get_tree().queue_delete(laser[0])
+		$PistolSprite.visible = false
+		$BlueSoldier.visible = true
+		print("shot")
 
 
 func hit(hit_points):

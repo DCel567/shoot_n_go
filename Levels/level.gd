@@ -9,8 +9,6 @@ signal cancel_reload
 
 func _ready():
 	if get_tree().paused == true:
-		# just restarted
-		#$Player.can_shoot = false
 		get_tree().paused = false
 		
 	var enemies = get_tree().get_nodes_in_group("Enemies")

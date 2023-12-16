@@ -38,3 +38,13 @@ before_move = 0.0
 
 [node name="move_point4" parent="red_soldier" index="14" instance=ExtResource("6_m0h8e")]
 position = Vector2(500.774, -1055.2)
+
+[node name="red_soldier2" parent="." index="6" instance=ExtResource("2_e47ek")]
+position = Vector2(662, 85)
+
+[node name="move_point" parent="red_soldier2" index="11" instance=ExtResource("6_m0h8e")]
+position = Vector2(8, -896)
+
+[node name="move_point2" parent="red_soldier2" index="12" instance=ExtResource("6_m0h8e")]
+position = Vector2(420, -380)
+scale = Vector2(1.2, 1.2)
