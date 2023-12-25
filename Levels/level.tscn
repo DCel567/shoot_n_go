@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b26p4sbiy1of8" path="res://scenes/player.tscn" id="4_g7cpp"]
 [ext_resource type="PackedScene" uid="uid://ccjyfn81os7o1" path="res://scenes/PauseMenu.tscn" id="4_k56nl"]
 [ext_resource type="PackedScene" uid="uid://1wxbwiwhodqv" path="res://scenes/DeadMenu.tscn" id="4_tsvm3"]
-[ext_resource type="PackedScene" uid="uid://61mf6bkcj6y2" path="res://UI/ammo.tscn" id="6_hovn8"]
+[ext_resource type="PackedScene" uid="uid://61mf6bkcj6y2" path="res://UI/Ammo.tscn" id="6_hovn8"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_pbfaq")

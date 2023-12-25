@@ -42,11 +42,11 @@ speed = 230
 position = Vector2(116, 10)
 
 [node name="BlueSoldier" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(30, -18)
 texture = ExtResource("1_03lcu")
 
 [node name="PistolSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(30, -18)
 texture = ExtResource("3_3vqqk")
 

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhybg0kkjqct6"]
+
+[ext_resource type="Script" path="res://scenes/yellow_bullet.gd" id="1_dxthi"]
+[ext_resource type="Texture2D" uid="uid://bch6kaf2r6nh1" path="res://graphics/white_bullet.png" id="2_lde1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osb8c"]
+size = Vector2(4, 30)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gdtq"]
+emission_shape = 1
+emission_sphere_radius = 2.0
+particle_flag_disable_z = true
+spread = 19.66
+gravity = Vector3(0, 100, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="yellow_bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 7
+max_contacts_reported = 1
+contact_monitor = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_dxthi")
+
+[node name="YellowBullet" type="Sprite2D" parent="."]
+self_modulate = Color(0.819608, 0.380392, 0.309804, 1)
+texture = ExtResource("2_lde1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_osb8c")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -2)
+emitting = false
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_6gdtq")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.88
+
+[node name="CollisionParticlesWhite" type="Timer" parent="."]
+
+[node name="LifeTimeTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="CollisionParticlesWhite" to="." method="_on_collision_particles_white_timeout"]
+[connection signal="timeout" from="LifeTimeTimer" to="." method="_on_life_time_timer_timeout"]

@@ -1,7 +1,8 @@
 extends Node2D
 class_name LevelParent
 
-var black_bullet_scene : PackedScene = preload("res://scenes/black_bullet.tscn")
+var yellow_bullet_scene : PackedScene = preload("res://scenes/black_bullet.tscn")
+var red_bullet_scene : PackedScene = preload("res://scenes/yellow_bullet.tscn")
 var red_soldier : PackedScene = preload("res://enemy/red_soldier.tscn")
 
 
@@ -20,8 +21,13 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _on_player_shoot(pos, direction):
-	var bullet = black_bullet_scene.instantiate() as RigidBody2D
+func _on_player_shoot(pos, direction, bullet_type):
+	var bullet : RigidBody2D
+	if bullet_type == "red":
+		bullet = red_bullet_scene.instantiate()
+	else:
+		bullet = yellow_bullet_scene.instantiate()
+		
 	
 	bullet.position = pos
 	
@@ -41,7 +47,7 @@ func _on_player_player_reload_over():
 
 
 func _on_enemy_shoot(pos, direction):
-	var bullet = black_bullet_scene.instantiate() as RigidBody2D
+	var bullet = yellow_bullet_scene.instantiate() as RigidBody2D
 	
 	bullet.position = pos
 	
@@ -53,4 +59,4 @@ func _on_enemy_shoot(pos, direction):
 
 func _on_player_died():
 	$ammo/DeadMenu.show()
-	#get_tree().paused = true
+

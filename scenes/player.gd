@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-signal player_shoot(pos, angle)
+signal player_shoot(pos, angle, bullet_type)
 signal player_reload_over()
 signal player_start_reload()
 signal player_died()
@@ -49,7 +49,7 @@ func _physics_process(_delta):
 		can_shoot = false
 		$shoot_timer.start()
 		
-		player_shoot.emit(bullet_position, bullet_direction)
+		player_shoot.emit(bullet_position, bullet_direction, "yellow")
 		
 	if Input.is_action_just_pressed("secondary_action"):
 		var vis_ray = Line2D.new()
@@ -62,15 +62,17 @@ func _physics_process(_delta):
 		$PistolSprite.visible = true
 		$BlueSoldier.visible = false
 		
-	if Input.is_action_pressed("secondary_action"):
-		print("laser")
 	
 	if Input.is_action_just_released("secondary_action"):
 		var laser = $Laser.get_children()
 		get_tree().queue_delete(laser[0])
 		$PistolSprite.visible = false
 		$BlueSoldier.visible = true
-		print("shot")
+		
+		var bullet_direction = (player_direction - position).normalized()
+		var bullet_position = $BulletStartPositions.global_position
+		
+		player_shoot.emit(bullet_position, bullet_direction, "red")
 
 
 func hit(hit_points):
