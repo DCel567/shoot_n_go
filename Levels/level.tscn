@@ -24,7 +24,9 @@ zoom = Vector2(2.5, 2.5)
 [node name="PauseMenu" parent="ammo" instance=ExtResource("4_k56nl")]
 process_mode = 3
 
+[connection signal="player_continue_reload" from="Player" to="ammo" method="_on_player_continue_reload"]
 [connection signal="player_died" from="Player" to="." method="_on_player_died"]
+[connection signal="player_pause_reload" from="Player" to="ammo" method="_on_player_pause_reload"]
 [connection signal="player_reload_over" from="Player" to="." method="_on_player_player_reload_over"]
 [connection signal="player_reload_over" from="Player" to="ammo" method="_on_player_player_reload_over"]
 [connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]

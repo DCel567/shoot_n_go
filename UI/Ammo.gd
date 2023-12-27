@@ -21,8 +21,14 @@ func _on_player_start_reload():
 	$ReloadingCircle.set_deferred("visible", true)
 	$ReloadingCircle.value = 0
 	
-
-
 func _on_player_player_reload_over():
 	time_passed = 0
 	$ReloadingCircle.set_deferred("visible", false)
+
+
+func _on_player_pause_reload():
+	Globals.is_reloading = false
+
+
+func _on_player_continue_reload():
+	Globals.is_reloading = true
