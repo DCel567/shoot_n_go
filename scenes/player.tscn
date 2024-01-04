@@ -97,6 +97,8 @@ hp_module = NodePath("../hp_module")
 visible = false
 shape = SubResource("CircleShape2D_ke7fk")
 
-[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
-[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="player_reload_over" from="state_machine/primary_weapon" to="." method="_on_primary_weapon_reload_over"]
+[connection signal="player_start_reload" from="state_machine/primary_weapon" to="." method="_on_primary_weapon_start_reload"]
+[connection signal="timeout" from="shoot_timer" to="state_machine/primary_weapon" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="state_machine/primary_weapon" method="_on_reload_timer_timeout"]
 [connection signal="died_event_handler" from="hp_module" to="." method="_on_hp_module_died_event_handler"]
