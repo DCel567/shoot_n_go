@@ -1,7 +1,7 @@
 extends State
 
 
-signal player_shoot(pos, angle, bullet_type)
+#signal player_shoot(pos, angle, bullet_type)
 signal player_reload_over()
 signal player_start_reload()
 signal player_pause_reload()
@@ -12,11 +12,14 @@ signal player_died()
 @onready var can_shoot : bool = true
 @onready var can_reload : bool = false
 @onready var reloading : bool = false
-@onready var pistol_ready : bool = true
+
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}):
-	print("primary")
+	$"../../BlueSoldier".visible = true
+	$"../../ReloadTimer".paused = false
+	#Globals.is_reloading = true
+	can_shoot = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,4 +66,7 @@ func _on_reload_timer_timeout():
 	
 	
 func exit():
-	print("primary exited")
+	$"../../BlueSoldier".visible = false
+	$"../../ReloadTimer".paused = true
+	Globals.is_reloading = false
+	can_shoot = false
